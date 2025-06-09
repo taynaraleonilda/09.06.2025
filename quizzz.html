@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Interativo - Conexão Campo e Cidade</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Estilo CSS -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #4caf50;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .pergunta {
+      font-size: 1.5rem;
+      margin: 20px 0;
+      color: #333;
+    }
+
+    .opcao {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #fff;
+      border: 2px solid #4caf50;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .opcao:hover {
+      background-color: #e8f5e9;
+    }
+
+    .botao {
+      background-color: #4caf50;
+      color: white;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      width: 200px;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .botao:hover {
+      background-color: #45a049;
+    }
+
+    .resultado {
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #333;
+    }
+
+    .figurinha {
+      margin-top: 30px;
+      display: none;
+    }
+
+    .voltar {
+      background-color: #f44336;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Quiz Interativo - Conexão Campo e Cidade</h1>
+
+    <!-- Pergunta 1 -->
+    <div class="pergunta" id="pergunta1">
+      <p>1. Qual é o principal recurso que conecta a agricultura à cidade?</p>
+      <label class="opcao" id="q1-a">
+        <input type="radio" name="q1" value="A" /> A tecnologia
+      </label>
+      <label class="opcao" id="q1-b">
+        <input type="radio" name="q1" value="B" /> O comércio
+      </label>
+      <label class="opcao" id="q1-c">
+        <input type="radio" name="q1" value="C" /> A estrada
+      </label>
+    </div>
+
+    <!-- Pergunta 2 -->
+    <div class="pergunta" id="pergunta2">
+      <p>2. O que define uma cidade sustentável?</p>
+      <label class="opcao" id="q2-a">
+        <input type="radio" name="q2" value="A" /> Uso de tecnologias verdes
+      </label>
+      <label class="opcao" id="q2-b">
+        <input type="radio" name="q2" value="B" /> Crescimento rápido da população
+      </label>
+      <label class="opcao" id="q2-c">
+        <input type="radio" name="q2" value="C" /> Menor quantidade de áreas verdes
+      </label>
+    </div>
+
+    <!-- Pergunta 3 -->
+    <div class="pergunta" id="pergunta3">
+      <p>3. Qual é o principal fator que distingue a zona rural da zona urbana?</p>
+      <label class="opcao" id="q3-a">
+        <input type="radio" name="q3" value="A" /> A quantidade de luz elétrica
+      </label>
+      <label class="opcao" id="q3-b">
+        <input type="radio" name="q3" value="B" /> A quantidade de áreas verdes
+      </label>
+      <label class="opcao" id="q3-c">
+        <input type="radio" name="q3" value="C" /> A presença de ruas pavimentadas
+      </label>
+    </div>
+
+    <!-- Pergunta 4 -->
+    <div class="pergunta" id="pergunta4">
+      <p>4. O que caracteriza um modelo de desenvolvimento rural sustentável?</p>
+      <label class="opcao" id="q4-a">
+        <input type="radio" name="q4" value="A" /> Consumo elevado de recursos naturais
+      </label>
+      <label class="opcao" id="q4-b">
+        <input type="radio" name="q4" value="B" /> Agricultura sem o uso de agrotóxicos
+      </label>
+      <label class="opcao" id="q4-c">
+        <input type="radio" name="q4" value="C" /> Grandes plantações de monocultura
+      </label>
+    </div>
+
+    <!-- Pergunta 5 -->
+    <div class="pergunta" id="pergunta5">
+      <p>5. Qual é a principal vantagem de uma cidade integrada com o campo?</p>
+      <label class="opcao" id="q5-a">
+        <input type="radio" name="q5" value="A" /> Menor número de empregos urbanos
+      </label>
+      <label class="opcao" id="q5-b">
+        <input type="radio" name="q5" value="B" /> Aumento na produção de alimentos locais
+      </label>
+      <label class="opcao" id="q5-c">
+        <input type="radio" name="q5" value="C" /> Diminuição da mobilidade social
+      </label>
+    </div>
+
+    <!-- Botão para calcular resultado -->
+    <button class="botao" onclick="calcularResultado()">Ver Resultado</button>
+
+    <!-- Resultado -->
+    <div class="resultado" id="resultado"></div>
+
+    <!-- Figurinha de prêmio -->
+    <div class="figurinha" id="figurinha">
+      <img src="https://via.placeholder.com/150?text=Parab%C3%A9ns!" alt="Figurinha de Prêmio" />
+    </div>
+
+    <!-- Botão Voltar -->
+    <a href="figurinhas.html" class="voltar">Voltar</a>
+  </div>
+
+  <script>
+    function calcularResultado() {
+      let score = 0;
+
+      // Respostas corretas
+      let respostasCorretas = {
+        q1: 'A', // A tecnologia
+        q2: 'A', // Uso de tecnologias verdes
+        q3: 'B', // A quantidade de áreas verdes
+        q4: 'B', // Agricultura sem o uso de agrotóxicos
+        q5: 'B'  // Aumento na produção de alimentos locais
+      };
+
+      // Verificar respostas
+      for (let i = 1; i <= 5; i++) {
+        let respostaSelecionada = document.querySelector(`input[name="q${i}"]:checked`);
+        if (respostaSelecionada) {
+          if (respostaSelecionada.value === respostasCorretas[`q${i}`]) {
+            score++;
+          }
+        }
+      }
+
+      // Mostrar resultado
+      let resultado = '';
+      if (score === 5) {
+        resultado = 'Parabéns! Você acertou todas as questões!';
+        document.getElementById("figurinha").style.display = "block";
+      } else if (score >= 3) {
+        resultado = `Você acertou ${score} de 5! Bom trabalho, continue assim!`;
+      } else {
+        resultado = `Você acertou ${score} de 5. Tente mais uma vez!`;
+      }
+
+      document.getElementById("resultado").innerText = resultado;
+    }
+  </script>
+</body>
+
+</html>
